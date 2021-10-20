@@ -19,3 +19,5 @@ case $op in
     echo "Invalid operation"
     ;;
 esac
+
+exit 0 # Avoids stopping subsequent steps if cache restoring/storing fails
