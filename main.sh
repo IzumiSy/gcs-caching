@@ -3,8 +3,8 @@
 op=$1
 local_=$2
 remote=$3
-key=$4
-archive=$key.tar.gz
+cache_key=$4
+archive=$(`md5sum $cache_key`).tar.gz
 
 case $op in
   "restore")
