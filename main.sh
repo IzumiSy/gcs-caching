@@ -1,21 +1,22 @@
 #!/usr/bin/env bash
 
 op=$1
-_local=$2
+local_=$2
 remote=$3
 key=$4
+archive=$key.tar.gz
 
 case $op in
   "restore")
-    gsutil -q cp $remote/$key.tar.gz /tmp
-    tar -xzf /tmp/$key.tar.gz -C $_local
-    rm /tmp/$key.tar.gz
+    gsutil -q cp $remote/$archive /tmp
+    tar -xzf /tmp/$archive -C $local_
+    rm /tmp/$archive
     ;;
 
   "store")
-    tar -czf /tmp/$key.tar.gz $_local
-    gsutil -q cp /tmp/$key.tar.gz $remote
-    rm /tmp/$key.tar.gz
+    tar -czf /tmp/$archive $local_
+    gsutil -q cp /tmp/$archive $remote
+    rm /tmp/$archive
     ;;
 
   *)
