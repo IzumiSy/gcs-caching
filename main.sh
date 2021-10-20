@@ -8,15 +8,11 @@ archive=$(md5sum $cache_key | awk '{ print $1 }').tar.gz
 
 case $op in
   "restore")
-    gsutil -q cp -r $remote/$archive /tmp \ 
-      && tar -xzf /tmp/$archive -C $local_ \
-      && rm /tmp/$archive
+    gsutil -q cp -r $remote/$archive /tmp && tar -xzf /tmp/$archive -C $local_ && rm /tmp/$archive
     ;;
 
   "store")
-    tar -czf /tmp/$archive $local_ \
-      && gsutil -q cp -r /tmp/$archive $remote \
-      && rm /tmp/$archive
+    tar -czf /tmp/$archive $local_ && gsutil -q cp -r /tmp/$archive $remote && rm /tmp/$archive
     ;;
 
   *)
