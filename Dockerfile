@@ -1,7 +1,6 @@
 FROM google/cloud-sdk:alpine
 
 RUN apk --update --no-cache add gzip
-RUN rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
 
