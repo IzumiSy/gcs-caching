@@ -1,7 +1,6 @@
 FROM google/cloud-sdk:alpine
 
-RUN apt-get update
-RUN apt-get install gzip -y
+RUN apk --update --no-cache add gzip
 RUN rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
