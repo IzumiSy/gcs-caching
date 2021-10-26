@@ -1,4 +1,4 @@
-FROM google/cloud-sdk:slim
+FROM google/cloud-sdk:alpine
 
 RUN apt-get update
 RUN apt-get install gzip -y
